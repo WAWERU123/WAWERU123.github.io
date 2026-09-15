@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catherine Waweru — Data Analyst</title>
+<meta name="description" content="Catherine Waweru — Data Analyst specializing in SQL, BigQuery, and Tableau. Nairobi, Kenya.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101922;
+    --paper:#EEF1EF;
+    --panel:#FFFFFF;
+    --accent:#1F9D6B;
+    --accent-amber:#E8A33D;
+    --muted:#5B6670;
+    --line:#D7DCD9;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  .kicker{
+    font-size:13px;
+    color:var(--muted);
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(238,241,239,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .nav-name{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px;}
+  .nav-links{display:flex; font-size:14px; color:var(--muted);}
+  .nav-links a{text-decoration:none; transition:color .15s; padding-left:28px;}
+  .nav-links a:first-child{padding-left:0;}
+  .nav-links a:hover{color:var(--ink);}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:88px 0 72px;}
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(30px,4.4vw,48px);
+    line-height:1.14;
+    margin:14px 0 22px;
+  }
+  .hero p.sub{
+    font-size:18px;
+    color:var(--muted);
+    max-width:46ch;
+    margin:0 0 30px;
+  }
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center;
+    padding:12px 22px;
+    border-radius:3px;
+    font-size:14.5px; font-weight:500;
+    text-decoration:none;
+    border:1px solid var(--ink);
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn-solid{background:var(--ink); color:var(--paper);}
+  .btn-solid:hover{transform:translateY(-1px); background:#000;}
+  .btn-ghost{background:transparent; color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink); color:var(--paper);}
+
+  .trace-panel{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:22px 22px 18px;
+  }
+  .trace-label{font-size:12.5px; color:var(--muted); margin-bottom:10px;}
+  svg#traceline{width:100%; height:auto; display:block;}
+  .trace-path{
+    fill:none; stroke:var(--accent); stroke-width:2.4;
+    stroke-linecap:round; stroke-linejoin:round;
+    stroke-dasharray:600; stroke-dashoffset:600;
+    animation:draw 2.1s ease forwards .3s;
+  }
+  .trace-path-noisy{
+    fill:none; stroke:var(--muted); stroke-width:1.6;
+    stroke-linecap:round; stroke-linejoin:round;
+    opacity:.55;
+    stroke-dasharray:420; stroke-dashoffset:420;
+    animation:draw 1.6s ease forwards .1s;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  .trace-caption{
+    display:flex; justify-content:space-between;
+    font-size:12px; color:var(--muted); margin-top:6px;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{margin-bottom:36px;}
+  .section-head h2{font-size:26px;}
+
+  /* ---------- JOURNEY ---------- */
+  .timeline{position:relative; padding-left:2px;}
+  .tl-item{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:20px;
+    position:relative;
+    padding-bottom:34px;
+  }
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:14px; font-weight:600;
+    color:var(--accent);
+    position:relative;
+  }
+  .tl-item:not(:last-child) .tl-num::after{
+    content:"";
+    position:absolute;
+    top:26px; left:9px;
+    width:1px; height:calc(100% + 8px);
+    background:var(--line);
+  }
+  .tl-body h3{font-size:17px; margin-bottom:2px;}
+  .tl-role{font-size:14.5px; color:var(--muted); margin-bottom:8px;}
+  .tl-desc{font-size:15px; color:#374049; max-width:60ch;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px 48px;
+  }
+  .skill-group h3{
+    font-size:14.5px; font-weight:600;
+    color:var(--ink); margin-bottom:8px;
+  }
+  .skill-group p{font-size:14.5px; color:var(--muted); margin:0;}
+
+  /* ---------- PROJECTS ---------- */
+  .project{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:36px;
+    padding:30px 0;
+    align-items:start;
+  }
+  .project + .project{border-top:1px solid var(--line);}
+  .project-viz{width:100%; height:auto;}
+  .project-tags{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;}
+  .tag{
+    font-size:12px; color:var(--ink);
+    border:1px solid var(--line);
+    background:var(--panel);
+    padding:3px 9px;
+    border-radius:2px;
+  }
+  .project h3{font-size:19px; margin-bottom:8px;}
+  .project p{font-size:15px; color:#374049; max-width:62ch; margin:0 0 10px;}
+  .project a.plink{
+    font-size:14px; font-weight:500;
+    text-decoration:none;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:1px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-row{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:24px;
+  }
+  .contact-row h2{font-size:28px; max-width:14ch;}
+  .contact-links{display:flex; flex-direction:column; gap:10px; font-size:15px;}
+  .contact-links a{text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; width:fit-content;}
+  .contact-links a:hover{border-color:var(--ink);}
+
+  footer{padding:26px 0 40px; font-size:13px; color:var(--muted);}
+
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    .project{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+  }
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">Catherine Waweru</div>
+    <div class="nav-links">
+      <a href="#journey">Journey</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Nairobi, Kenya — Data Analyst</div>
+      <h1>I spent five years under the hood of electric buses. Now I dig through their data instead.</h1>
+      <p class="sub">SQL, BigQuery, and Tableau — turning fleet and operational data into decisions, with a technician's eye for what the numbers are actually describing.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="#projects">See the work</a>
+        <a class="btn btn-ghost" href="mailto:kathyweru85@gmail.com">Get in touch</a>
+      </div>
+    </div>
+    <div class="trace-panel">
+      <div class="trace-label">Two years of readings, cleaned up</div>
+      <svg id="traceline" viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
+        <polyline class="trace-path-noisy" points="0,95 24,80 38,102 55,70 72,90 90,60 108,88 126,55 145,78 160,50" />
+        <polyline class="trace-path" points="160,50 180,58 200,40 220,44 240,22 260,28 280,12 300,16 320,4" />
+      </svg>
+      <div class="trace-caption">
+        <span>technician era</span>
+        <span>analyst era</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="journey">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Journey</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-num">01</div>
+        <div class="tl-body">
+          <h3>Automotive Technician</h3>
+          <div class="tl-role">BMW Center Kenya · Jul 2021 – Nov 2022</div>
+          <div class="tl-desc">Structured fault diagnosis on premium vehicles using OEM diagnostic software — the first habit of "trust the evidence, not the guess" that carried into every role after.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">02</div>
+        <div class="tl-body">
+          <h3>Electric Bus Technician</h3>
+          <div class="tl-role">BasiGo · Dec 2022 – Jan 2026</div>
+          <div class="tl-desc">Led installation of a 110kWh, 500V high-voltage battery system at 98% charge efficiency. BMS diagnostics, cell balancing, and predictive maintenance that cut breakdowns by 25%.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">03</div>
+        <div class="tl-body">
+          <h3>Service Data Analyst</h3>
+          <div class="tl-role">BasiGo · Feb 2026 – Jul 2026</div>
+          <div class="tl-desc">Moved into analytics. Built automated Python pipelines for fleet monitoring, ran EDA on high-volume fault logs, and shipped the dashboards that made failure trends visible.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">04</div>
+        <div class="tl-body">
+          <h3>Operations Data Analyst</h3>
+          <div class="tl-role">BasiGo · Aug 2026 – Present</div>
+          <div class="tl-desc">Cross-functional dashboards and KPI reporting spanning Manufacturing, Engineering, Customer Service, Supply Chain, and Quality. Currently deepening BigQuery and cloud-native analytics.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Data Analytics &amp; BI</h3>
+        <p>SQL · Tableau · Python (Pandas, NumPy) · Exploratory Data Analysis · Data Validation &amp; Auditing</p>
+      </div>
+      <div class="skill-group">
+        <h3>Data Engineering</h3>
+        <p>BigQuery · ETL Pipelines · Data Automation (gspread, APIs) · Data Intake Standardization</p>
+      </div>
+      <div class="skill-group">
+        <h3>Analytical Methods</h3>
+        <p>Root Cause Analysis · KPI Auditing · Predictive Analytics · Statistical Modeling</p>
+      </div>
+      <div class="skill-group">
+        <h3>Domain Depth</h3>
+        <p>EV &amp; battery systems · High-voltage architecture (up to 500V) · Fleet telematics · OEM technical coordination</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Projects</h2>
+    </div>
+
+    <div class="project">
+      <svg class="project-viz" viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="30" x2="200" y2="30" stroke="#D7DCD9" stroke-dasharray="3,3"/>
+        <polyline points="0,50 20,45 40,25 55,95 70,98 90,80 110,65 130,55 150,40 170,15 190,8" fill="none" stroke="#1F9D6B" stroke-width="2.2"/>
+      </svg>
+      <div>
+        <div class="project-tags"><span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Tableau</span></div>
+        <h3>JKIA Passenger Recovery Analysis</h3>
+        <p>Full pipeline from a raw, messy public dataset through BigQuery — unpivoting, hierarchy validation, two independent audits — into a story-driven Tableau dashboard tracking Kenya's aviation recovery through COVID.</p>
+        <a class="plink" href="#">View on Tableau Public →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <svg class="project-viz" viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="60" width="24" height="40" fill="#E8A33D"/>
+        <rect x="45" y="40" width="24" height="60" fill="#1F9D6B"/>
+        <rect x="80" y="70" width="24" height="30" fill="#E8A33D"/>
+        <rect x="115" y="20" width="24" height="80" fill="#1F9D6B"/>
+        <rect x="150" y="50" width="24" height="50" fill="#E8A33D"/>
+      </svg>
+      <div>
+        <div class="project-tags"><span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Sustainability</span></div>
+        <h3>Kenya AI Carbon Audit</h3>
+        <p>BigQuery pipeline modeling AI compute energy and emissions in Kenya against global tech hubs — the US, Ireland, Iceland — covering clean-baseline advantage, peaking-plant risk, and efficiency leverage.</p>
+        <a class="plink" href="#">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <svg class="project-viz" viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="0,90 30,85 60,70 90,60 120,45 150,38 180,20 200,10" fill="none" stroke="#1F9D6B" stroke-width="2.2"/>
+        <polyline points="0,95 30,92 60,88 90,82 120,75 150,68 180,58 200,52" fill="none" stroke="#5B6670" stroke-width="1.6" opacity=".6"/>
+      </svg>
+      <div>
+        <div class="project-tags"><span class="tag">Power BI</span><span class="tag">Time Series</span></div>
+        <h3>Kenya Transport Emissions Dashboard</h3>
+        <p>Interactive Power BI dashboard analyzing Kenya's transport-sector CO2, CH4, and N2O emissions from 1990–2022, with trend and year-over-year analysis built on Climate Watch / WRI data.</p>
+        <a class="plink" href="#">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <svg class="project-viz" viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="15" width="180" height="18" rx="2" fill="none" stroke="#D7DCD9"/>
+        <rect x="10" y="15" width="120" height="18" rx="2" fill="#1F9D6B" opacity=".85"/>
+        <rect x="10" y="45" width="180" height="18" rx="2" fill="none" stroke="#D7DCD9"/>
+        <rect x="10" y="45" width="70" height="18" rx="2" fill="#E8A33D" opacity=".85"/>
+        <rect x="10" y="75" width="180" height="18" rx="2" fill="none" stroke="#D7DCD9"/>
+        <rect x="10" y="75" width="155" height="18" rx="2" fill="#1F9D6B" opacity=".5"/>
+      </svg>
+      <div>
+        <div class="project-tags"><span class="tag">PostgreSQL</span><span class="tag">Python</span><span class="tag">Automation</span></div>
+        <h3>Fleet Mileage Automation Pipeline</h3>
+        <p>A scheduled pipeline that pulls mileage data from PostgreSQL weekly and produces clean, ready-to-use CSVs — removing a manual step that used to sit between raw telematics and reporting.</p>
+        <a class="plink" href="#">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <svg class="project-viz" viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="55" r="34" fill="none" stroke="#D7DCD9" stroke-width="10"/>
+        <circle cx="50" cy="55" r="34" fill="none" stroke="#1F9D6B" stroke-width="10" stroke-dasharray="140 214" stroke-linecap="round" transform="rotate(-90 50 55)"/>
+        <circle cx="150" cy="55" r="34" fill="none" stroke="#D7DCD9" stroke-width="10"/>
+        <circle cx="150" cy="55" r="34" fill="none" stroke="#E8A33D" stroke-width="10" stroke-dasharray="200 214" stroke-linecap="round" transform="rotate(-90 150 55)"/>
+      </svg>
+      <div>
+        <div class="project-tags"><span class="tag">PostgreSQL</span><span class="tag">Performance</span></div>
+        <h3>Window Function Query Optimization</h3>
+        <p>Rebuilt slow telematics queries using PostgreSQL window functions in place of repeated self-joins, cutting query time meaningfully on high-volume mileage data.</p>
+        <a class="plink" href="#">View on GitHub →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-row">
+      <h2>Let's talk data.</h2>
+      <div class="contact-links">
+        <a href="mailto:kathyweru85@gmail.com">kathyweru85@gmail.com</a>
+        <a href="http://www.linkedin.com/in/waweru-c48b838220" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Catherine Waweru — Nairobi, Kenya</div>
+</footer>
+
+</body>
+</html>

@@ -83,6 +83,9 @@
     text-decoration:none;
     border:1px solid var(--ink);
     transition:transform .15s ease, background .15s ease, color .15s ease;
+    cursor:pointer;
+    background:none;
+    font-family:'Inter',sans-serif;
   }
   .btn-solid{background:var(--ink); color:var(--paper);}
   .btn-solid:hover{transform:translateY(-1px); background:#000;}
@@ -163,19 +166,45 @@
 
   /* ---------- CONTACT ---------- */
   .contact-row{
-    display:flex; justify-content:space-between; align-items:flex-end;
-    flex-wrap:wrap; gap:24px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:start;
   }
-  .contact-row h2{font-size:28px; max-width:14ch;}
+  .contact-row h2{font-size:28px; max-width:14ch; margin-bottom:14px;}
+  .contact-intro{font-size:15px; color:var(--muted); max-width:38ch; margin:0 0 22px;}
   .contact-links{display:flex; flex-direction:column; gap:10px; font-size:15px;}
   .contact-links a{text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; width:fit-content;}
   .contact-links a:hover{border-color:var(--ink);}
+
+  .contact-form{display:flex; flex-direction:column; gap:14px;}
+  .form-row{display:flex; flex-direction:column; gap:6px;}
+  .form-row label{font-size:13px; font-weight:500; color:var(--muted);}
+  .form-row input, .form-row textarea{
+    font-family:'Inter',sans-serif;
+    font-size:14.5px;
+    padding:11px 12px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    background:var(--panel);
+    color:var(--ink);
+    resize:vertical;
+  }
+  .form-row input:focus, .form-row textarea:focus{
+    outline:none;
+    border-color:var(--accent);
+  }
+  .form-status{font-size:14px; margin-top:2px; display:none;}
+  .form-status.show{display:block;}
+  .form-status.ok{color:var(--accent);}
+  .form-status.err{color:#C0392B;}
 
   footer{padding:26px 0 40px; font-size:13px; color:var(--muted);}
 
   @media (max-width:760px){
     .project{grid-template-columns:1fr;}
     .skills-grid{grid-template-columns:1fr;}
+    .contact-row{grid-template-columns:1fr;}
     .nav-links{display:none;}
   }
   :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
@@ -202,7 +231,7 @@
     <p class="sub">SQL, Python, BigQuery, and Tableau. I turn fleet and operational data into decisions, with a technician's eye for what the numbers are actually describing.</p>
     <div class="cta-row">
       <a class="btn btn-solid" href="#projects">See the work</a>
-      <a class="btn btn-ghost" href="#" id="heroContactLink">Get in touch</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
     </div>
   </div>
 </header>
@@ -359,12 +388,35 @@
 <section id="contact">
   <div class="wrap">
     <div class="contact-row">
-      <h2>Let's talk data.</h2>
-      <div class="contact-links">
-        <a href="#" id="emailLink">contact via email</a>
-        <a href="http://www.linkedin.com/in/waweru-c48b838220" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/WAWERU123" target="_blank" rel="noopener">GitHub</a>
+      <div>
+        <h2>Let's talk data.</h2>
+        <p class="contact-intro">Have a role, project, or dataset you think I'd be a good fit for? Send a note below and it'll land directly in my inbox.</p>
+        <div class="contact-links">
+          <a href="http://www.linkedin.com/in/waweru-c48b838220" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/WAWERU123" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </div>
+
+      <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New message from portfolio site">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+
+        <div class="form-row">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" type="text" name="name" placeholder="Your full name" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-email">Email address</label>
+          <input id="cf-email" type="email" name="email" placeholder="So I can reply to you" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="4" placeholder="Tell me a bit about the role or project" required></textarea>
+        </div>
+        <button class="btn btn-solid" type="submit" style="align-self:flex-start;">Send</button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
     </div>
   </div>
 </section>
@@ -373,19 +425,35 @@
   <div class="wrap">Catherine Waweru · Nairobi, Kenya</div>
 </footer>
 
-
 <script>
   (function(){
-    var user = "kathyweru85";
-    var domain = "gmail.com";
-    var address = user + "@" + domain;
-    var mailLink = "mailto:" + address;
-
-    var hero = document.getElementById("heroContactLink");
-    if(hero){ hero.href = mailLink; }
-
-    var contact = document.getElementById("emailLink");
-    if(contact){ contact.href = mailLink; contact.textContent = address; }
+    var form = document.getElementById("contactForm");
+    var status = document.getElementById("formStatus");
+    if(!form) return;
+    form.addEventListener("submit", async function(e){
+      e.preventDefault();
+      status.className = "form-status show";
+      status.textContent = "Sending...";
+      try{
+        var res = await fetch(form.action, {
+          method: "POST",
+          headers: {"Accept":"application/json"},
+          body: new FormData(form)
+        });
+        var data = await res.json();
+        if(data.success){
+          status.className = "form-status show ok";
+          status.textContent = "Thanks — message sent. I'll get back to you soon.";
+          form.reset();
+        } else {
+          status.className = "form-status show err";
+          status.textContent = "Something went wrong. Try again, or reach me on LinkedIn.";
+        }
+      } catch(err){
+        status.className = "form-status show err";
+        status.textContent = "Something went wrong. Try again, or reach me on LinkedIn.";
+      }
+    });
   })();
 </script>
 </body>

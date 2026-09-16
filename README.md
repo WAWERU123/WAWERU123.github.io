@@ -27,4 +27,4 @@ Just open `index.html` in a browser. No server needed.
 
 - Live site: [waweru123.github.io](https://waweru123.github.io)
 - LinkedIn: [linkedin.com/in/waweru-c48b838220](http://www.linkedin.com/in/waweru-c48b838220)
-- Email: [kathyweru85@gmail.com](mailto:kathyweru85@gmail.com)
+

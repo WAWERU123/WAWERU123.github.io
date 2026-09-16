@@ -1,6 +1,3 @@
-Readme · MD
-Catherine Waweru — Portfolio
-
 Personal portfolio site: waweru123.github.io
 
 Data Analyst specializing in SQL, Python, BigQuery, and Tableau — background in EV systems (battery installation, BMS diagnostics, high-voltage architecture) before moving into analytics.

@@ -145,6 +145,7 @@
     padding:30px 0;
     align-items:start;
   }
+  .project.no-viz{grid-template-columns:1fr;}
   .project + .project{border-top:1px solid var(--line);}
   .project-viz{width:100%; height:auto; border-radius:3px; display:block; object-fit:cover;}
   .project-tags{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;}
@@ -321,13 +322,18 @@
       </div>
     </div>
 
-    <div class="project">
-      <img class="project-viz" src="total_energy_kwh%20by%20workload_id.png" alt="Total energy consumption (kWh) by workload size, from BigQuery"
-        onerror="this.outerHTML='&lt;svg class=&quot;project-viz&quot; viewBox=&quot;0 0 200 110&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;rect x=&quot;10&quot; y=&quot;60&quot; width=&quot;24&quot; height=&quot;40&quot; fill=&quot;%23E8A33D&quot;/&gt;&lt;rect x=&quot;45&quot; y=&quot;40&quot; width=&quot;24&quot; height=&quot;60&quot; fill=&quot;%231F9D6B&quot;/&gt;&lt;rect x=&quot;80&quot; y=&quot;70&quot; width=&quot;24&quot; height=&quot;30&quot; fill=&quot;%23E8A33D&quot;/&gt;&lt;rect x=&quot;115&quot; y=&quot;20&quot; width=&quot;24&quot; height=&quot;80&quot; fill=&quot;%231F9D6B&quot;/&gt;&lt;rect x=&quot;150&quot; y=&quot;50&quot; width=&quot;24&quot; height=&quot;50&quot; fill=&quot;%23E8A33D&quot;/&gt;&lt;/svg&gt;'">
+    <div class="project no-viz">
       <div>
         <div class="project-tags"><span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Sustainability</span></div>
         <h3>Kenya AI Carbon Audit</h3>
-        <p>A BigQuery pipeline modeling AI compute energy and emissions in Kenya against global tech hubs, including the US, Ireland, and Iceland, and covering clean-baseline advantage, peaking-plant risk, and efficiency leverage.</p>
+        <p>A BigQuery pipeline unifying four data sources — AI workload logs, GPU hardware specs, data center PUE, and Kenya's national grid generation mix — into a single model that calculates the real energy and carbon cost of AI training and inference, run locally instead of assumed against a generic global average.</p>
+        <div class="project-stats">
+          <span><strong>322.56 kWh</strong> total energy, sample workload</span>
+          <span><strong>91.4%</strong> renewable grid mix (geothermal, hydro, wind)</span>
+          <span><strong>~80%</strong> lower emissions vs. coal-heavy grids</span>
+          <span><strong>10–20%</strong> overhead added by data center cooling (PUE)</span>
+        </div>
+        <p>The finding: Kenya isn't a compromise location for AI compute, it's a genuine advantage. Running the same workload here instead of on a fossil-heavy grid cuts emissions by roughly 80% before touching a single line of code — though cooling and facility overhead still add a real, measurable tax on top of raw compute.</p>
         <a class="plink" href="https://github.com/WAWERU123/kenya-ai-carbon-audit" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
     </div>

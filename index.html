@@ -202,7 +202,7 @@
     <p class="sub">SQL, Python, BigQuery, and Tableau. I turn fleet and operational data into decisions, with a technician's eye for what the numbers are actually describing.</p>
     <div class="cta-row">
       <a class="btn btn-solid" href="#projects">See the work</a>
-      <a class="btn btn-ghost" href="mailto:kathyweru85@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" href="#" id="heroContactLink">Get in touch</a>
     </div>
   </div>
 </header>
@@ -287,7 +287,7 @@
       <div>
         <div class="project-tags"><span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Tableau</span></div>
         <h3>JKIA Passenger Recovery Analysis</h3>
-        <p>A full pipeline from a raw, messy public dataset through BigQuery, including unpivoting, hierarchy validation, and two independent audits, into a story-driven Tableau dashboard tracking Kenya's aviation recovery through COVID.</p>
+        <p>Audited a raw, messy public dataset end to end in BigQuery: unpivoted it, validated it against two independent checks, and caught two blank cells plus a discrepancy the source data itself had gotten wrong in its own reported total. Built a Tableau dashboard tracking Kenya's aviation recovery through COVID. Traffic came back 11% above pre-pandemic levels by August 2022, but not evenly: one route, Zurich, never recovered at all, five others came back 2 to 3.5 times their 2019 volume, and the network's top 5 hubs saw their combined share of traffic drop from 48% to 38%.</p>
         <a class="plink" href="https://public.tableau.com/views/TrafficAnalytics_17894144407200/JKIAPassengerRecoveryRoutePerformanceExecutiveOverview?:language=en-US&amp;publish=yes&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener">View on Tableau Public →</a>
       </div>
     </div>
@@ -361,9 +361,9 @@
     <div class="contact-row">
       <h2>Let's talk data.</h2>
       <div class="contact-links">
-        <a href="mailto:kathyweru85@gmail.com">kathyweru85@gmail.com</a>
+        <a href="#" id="emailLink">contact via email</a>
         <a href="http://www.linkedin.com/in/waweru-c48b838220" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/WAWERU123" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </div>
@@ -373,5 +373,20 @@
   <div class="wrap">Catherine Waweru · Nairobi, Kenya</div>
 </footer>
 
+
+<script>
+  (function(){
+    var user = "kathyweru85";
+    var domain = "gmail.com";
+    var address = user + "@" + domain;
+    var mailLink = "mailto:" + address;
+
+    var hero = document.getElementById("heroContactLink");
+    if(hero){ hero.href = mailLink; }
+
+    var contact = document.getElementById("emailLink");
+    if(contact){ contact.href = mailLink; contact.textContent = address; }
+  })();
+</script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catherine Waweru — Data Analyst</title>
-<meta name="description" content="Catherine Waweru — Data Analyst specializing in SQL, BigQuery, and Tableau. Nairobi, Kenya.">
+<title>Catherine Waweru, Data Analyst</title>
+<meta name="description" content="Catherine Waweru, a Data Analyst specializing in SQL, Python, BigQuery, and Tableau. Nairobi, Kenya.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -62,16 +62,11 @@
 
   /* ---------- HERO ---------- */
   header.hero{padding:88px 0 72px;}
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.15fr 0.85fr;
-    gap:56px;
-    align-items:center;
-  }
   .hero h1{
     font-size:clamp(30px,4.4vw,48px);
     line-height:1.14;
     margin:14px 0 22px;
+    max-width:22ch;
   }
   .hero p.sub{
     font-size:18px;
@@ -93,33 +88,6 @@
   .btn-solid:hover{transform:translateY(-1px); background:#000;}
   .btn-ghost{background:transparent; color:var(--ink);}
   .btn-ghost:hover{background:var(--ink); color:var(--paper);}
-
-  .trace-panel{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:22px 22px 18px;
-  }
-  .trace-label{font-size:12.5px; color:var(--muted); margin-bottom:10px;}
-  svg#traceline{width:100%; height:auto; display:block;}
-  .trace-path{
-    fill:none; stroke:var(--accent); stroke-width:2.4;
-    stroke-linecap:round; stroke-linejoin:round;
-    stroke-dasharray:600; stroke-dashoffset:600;
-    animation:draw 2.1s ease forwards .3s;
-  }
-  .trace-path-noisy{
-    fill:none; stroke:var(--muted); stroke-width:1.6;
-    stroke-linecap:round; stroke-linejoin:round;
-    opacity:.55;
-    stroke-dasharray:420; stroke-dashoffset:420;
-    animation:draw 1.6s ease forwards .1s;
-  }
-  @keyframes draw{to{stroke-dashoffset:0;}}
-  .trace-caption{
-    display:flex; justify-content:space-between;
-    font-size:12px; color:var(--muted); margin-top:6px;
-  }
 
   /* ---------- SECTION SHELL ---------- */
   section{padding:64px 0;}
@@ -175,7 +143,7 @@
     align-items:start;
   }
   .project + .project{border-top:1px solid var(--line);}
-  .project-viz{width:100%; height:auto;}
+  .project-viz{width:100%; height:auto; border-radius:3px; display:block; object-fit:cover;}
   .project-tags{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;}
   .tag{
     font-size:12px; color:var(--ink);
@@ -206,7 +174,6 @@
   footer{padding:26px 0 40px; font-size:13px; color:var(--muted);}
 
   @media (max-width:760px){
-    .hero-grid{grid-template-columns:1fr;}
     .project{grid-template-columns:1fr;}
     .skills-grid{grid-template-columns:1fr;}
     .nav-links{display:none;}
@@ -229,26 +196,13 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="kicker">Nairobi, Kenya — Data Analyst</div>
-      <h1>I spent five years under the hood of electric buses. Now I dig through their data instead.</h1>
-      <p class="sub">SQL, BigQuery, and Tableau — turning fleet and operational data into decisions, with a technician's eye for what the numbers are actually describing.</p>
-      <div class="cta-row">
-        <a class="btn btn-solid" href="#projects">See the work</a>
-        <a class="btn btn-ghost" href="mailto:kathyweru85@gmail.com">Get in touch</a>
-      </div>
-    </div>
-    <div class="trace-panel">
-      <div class="trace-label">Two years of readings, cleaned up</div>
-      <svg id="traceline" viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
-        <polyline class="trace-path-noisy" points="0,95 24,80 38,102 55,70 72,90 90,60 108,88 126,55 145,78 160,50" />
-        <polyline class="trace-path" points="160,50 180,58 200,40 220,44 240,22 260,28 280,12 300,16 320,4" />
-      </svg>
-      <div class="trace-caption">
-        <span>technician era</span>
-        <span>analyst era</span>
-      </div>
+  <div class="wrap">
+    <div class="kicker">Nairobi, Kenya · Data Analyst</div>
+    <h1>I spent three years under the hood of electric buses. Now I dig through their data instead.</h1>
+    <p class="sub">SQL, Python, BigQuery, and Tableau. I turn fleet and operational data into decisions, with a technician's eye for what the numbers are actually describing.</p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="#projects">See the work</a>
+      <a class="btn btn-ghost" href="mailto:kathyweru85@gmail.com">Get in touch</a>
     </div>
   </div>
 </header>
@@ -262,21 +216,13 @@
       <div class="tl-item">
         <div class="tl-num">01</div>
         <div class="tl-body">
-          <h3>Automotive Technician</h3>
-          <div class="tl-role">BMW Center Kenya · Jul 2021 – Nov 2022</div>
-          <div class="tl-desc">Structured fault diagnosis on premium vehicles using OEM diagnostic software — the first habit of "trust the evidence, not the guess" that carried into every role after.</div>
+          <h3>Operations Data Analyst</h3>
+          <div class="tl-role">BasiGo · Aug 2026 – Present</div>
+          <div class="tl-desc">Cross-functional dashboards and KPI reporting spanning Manufacturing, Engineering, Customer Service, Supply Chain, and Quality. Currently deepening BigQuery and cloud-native analytics.</div>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-num">02</div>
-        <div class="tl-body">
-          <h3>Electric Bus Technician</h3>
-          <div class="tl-role">BasiGo · Dec 2022 – Jan 2026</div>
-          <div class="tl-desc">Led installation of a 110kWh, 500V high-voltage battery system at 98% charge efficiency. BMS diagnostics, cell balancing, and predictive maintenance that cut breakdowns by 25%.</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-num">03</div>
         <div class="tl-body">
           <h3>Service Data Analyst</h3>
           <div class="tl-role">BasiGo · Feb 2026 – Jul 2026</div>
@@ -284,11 +230,19 @@
         </div>
       </div>
       <div class="tl-item">
+        <div class="tl-num">03</div>
+        <div class="tl-body">
+          <h3>Electric Bus Technician</h3>
+          <div class="tl-role">BasiGo · Dec 2022 – Jan 2026</div>
+          <div class="tl-desc">Led installation of a 110kWh, 500V high-voltage battery system at 98% charge efficiency. BMS diagnostics, cell balancing, and predictive maintenance that cut breakdowns by 25%.</div>
+        </div>
+      </div>
+      <div class="tl-item">
         <div class="tl-num">04</div>
         <div class="tl-body">
-          <h3>Operations Data Analyst</h3>
-          <div class="tl-role">BasiGo · Aug 2026 – Present</div>
-          <div class="tl-desc">Cross-functional dashboards and KPI reporting spanning Manufacturing, Engineering, Customer Service, Supply Chain, and Quality. Currently deepening BigQuery and cloud-native analytics.</div>
+          <h3>Automotive Technician</h3>
+          <div class="tl-role">BMW Center Kenya · Jul 2021 – Nov 2022</div>
+          <div class="tl-desc">Structured fault diagnosis on premium vehicles using OEM diagnostic software. It was the first habit of "trust the evidence, not the guess" that carried into every role after.</div>
         </div>
       </div>
     </div>
@@ -328,15 +282,13 @@
     </div>
 
     <div class="project">
-      <svg class="project-viz" viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="30" x2="200" y2="30" stroke="#D7DCD9" stroke-dasharray="3,3"/>
-        <polyline points="0,50 20,45 40,25 55,95 70,98 90,80 110,65 130,55 150,40 170,15 190,8" fill="none" stroke="#1F9D6B" stroke-width="2.2"/>
-      </svg>
+      <img class="project-viz" src="jkia-dashboard.png" alt="JKIA Passenger Recovery dashboard in Tableau"
+        onerror="this.outerHTML='&lt;svg class=&quot;project-viz&quot; viewBox=&quot;0 0 200 110&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;line x1=&quot;0&quot; y1=&quot;30&quot; x2=&quot;200&quot; y2=&quot;30&quot; stroke=&quot;%23D7DCD9&quot; stroke-dasharray=&quot;3,3&quot;/&gt;&lt;polyline points=&quot;0,50 20,45 40,25 55,95 70,98 90,80 110,65 130,55 150,40 170,15 190,8&quot; fill=&quot;none&quot; stroke=&quot;%231F9D6B&quot; stroke-width=&quot;2.2&quot;/&gt;&lt;/svg&gt;'">
       <div>
         <div class="project-tags"><span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Tableau</span></div>
         <h3>JKIA Passenger Recovery Analysis</h3>
-        <p>Full pipeline from a raw, messy public dataset through BigQuery — unpivoting, hierarchy validation, two independent audits — into a story-driven Tableau dashboard tracking Kenya's aviation recovery through COVID.</p>
-        <a class="plink" href="#">View on Tableau Public →</a>
+        <p>A full pipeline from a raw, messy public dataset through BigQuery, including unpivoting, hierarchy validation, and two independent audits, into a story-driven Tableau dashboard tracking Kenya's aviation recovery through COVID.</p>
+        <a class="plink" href="https://public.tableau.com/views/TrafficAnalytics_17894144407200/JKIAPassengerRecoveryRoutePerformanceExecutiveOverview?:language=en-US&amp;publish=yes&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener">View on Tableau Public →</a>
       </div>
     </div>
 
@@ -351,7 +303,7 @@
       <div>
         <div class="project-tags"><span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Sustainability</span></div>
         <h3>Kenya AI Carbon Audit</h3>
-        <p>BigQuery pipeline modeling AI compute energy and emissions in Kenya against global tech hubs — the US, Ireland, Iceland — covering clean-baseline advantage, peaking-plant risk, and efficiency leverage.</p>
+        <p>A BigQuery pipeline modeling AI compute energy and emissions in Kenya against global tech hubs, including the US, Ireland, and Iceland, and covering clean-baseline advantage, peaking-plant risk, and efficiency leverage.</p>
         <a class="plink" href="#">View on GitHub →</a>
       </div>
     </div>
@@ -381,7 +333,7 @@
       <div>
         <div class="project-tags"><span class="tag">PostgreSQL</span><span class="tag">Python</span><span class="tag">Automation</span></div>
         <h3>Fleet Mileage Automation Pipeline</h3>
-        <p>A scheduled pipeline that pulls mileage data from PostgreSQL weekly and produces clean, ready-to-use CSVs — removing a manual step that used to sit between raw telematics and reporting.</p>
+        <p>A scheduled pipeline that pulls mileage data from PostgreSQL weekly and produces clean, ready-to-use CSVs. It removes a manual step that used to sit between raw telematics and reporting.</p>
         <a class="plink" href="#">View on GitHub →</a>
       </div>
     </div>
@@ -418,7 +370,7 @@
 </section>
 
 <footer>
-  <div class="wrap">Catherine Waweru — Nairobi, Kenya</div>
+  <div class="wrap">Catherine Waweru · Nairobi, Kenya</div>
 </footer>
 
 </body>

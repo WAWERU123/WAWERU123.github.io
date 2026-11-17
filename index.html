@@ -9,14 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0F172A;        /* deep navy: headings & buttons */
-    --text:#334155;       /* body copy */
-    --paper:#F5F6F8;      /* soft off-white page background */
-    --panel:#FFFFFF;      /* cards, chips, inputs */
-    --accent:#1E40AF;     /* single deep-blue accent */
-    --muted:#566274;      /* secondary text */
-    --line:#DDE2E9;       /* borders & dividers */
-    --error:#B42318;
+    --ink:#111827;
+    --paper:#E9EDF2;
+    --panel:#FFFFFF;
+    --accent:#2563EB;
+    --accent-amber:#0EA5A0;
+    --muted:#5C6879;
+    --line:#CBD3DE;
     --maxw:1040px;
   }
   *{box-sizing:border-box;}
@@ -47,7 +46,7 @@
   /* ---------- NAV ---------- */
   nav{
     position:sticky; top:0; z-index:50;
-    background:rgba(245,246,248,0.88);
+    background:rgba(238,241,239,0.88);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
   }
@@ -83,13 +82,13 @@
     font-size:14.5px; font-weight:500;
     text-decoration:none;
     border:1px solid var(--ink);
-    transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+    transition:transform .15s ease, background .15s ease, color .15s ease;
     cursor:pointer;
     background:none;
     font-family:'Inter',sans-serif;
   }
   .btn-solid{background:var(--ink); color:var(--paper);}
-  .btn-solid:hover{transform:translateY(-1px); background:var(--accent); border-color:var(--accent);}
+  .btn-solid:hover{transform:translateY(-1px); background:#000;}
   .btn-ghost{background:transparent; color:var(--ink);}
   .btn-ghost:hover{background:var(--ink); color:var(--paper);}
 
@@ -100,7 +99,7 @@
     gap:0;
     align-items:center;
   }
-  .hero .about p{font-size:16px; color:var(--text); max-width:58ch; margin:0 0 14px;}
+  .hero .about p{font-size:16px; color:#374049; max-width:58ch; margin:0 0 14px;}
   .hero .about{margin:0 0 26px;}
   .hero-photo{margin:0; position:relative;}
   .photo-frame{
@@ -109,14 +108,14 @@
     aspect-ratio:4/5;
     border-radius:6px;
     overflow:hidden;
-    background:linear-gradient(160deg,#E6EAF0 0%,#D3DAE5 100%);
+    background:linear-gradient(160deg,#DCE3EC 0%,#C5D0DE 100%);
     border:1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
   }
   .photo-frame .initials{
     font-family:'Space Grotesk',sans-serif;
     font-size:64px; font-weight:600;
-    color:rgba(15,23,42,0.28);
+    color:rgba(17,24,39,0.28);
     letter-spacing:0.04em;
   }
   .photo-frame img{
@@ -168,7 +167,7 @@
   }
   .tl-body h3{font-size:17px; margin-bottom:2px;}
   .tl-role{font-size:14.5px; color:var(--muted); margin-bottom:8px;}
-  .tl-desc{font-size:15px; color:var(--text); max-width:60ch;}
+  .tl-desc{font-size:15px; color:#374049; max-width:60ch;}
 
   /* ---------- SKILLS ---------- */
   .skills-grid{
@@ -202,7 +201,7 @@
     border-radius:2px;
   }
   .project h3{font-size:19px; margin-bottom:8px;}
-  .project p{font-size:15px; color:var(--text); max-width:62ch; margin:0 0 10px;}
+  .project p{font-size:15px; color:#374049; max-width:62ch; margin:0 0 10px;}
   .project-stats{
     display:flex; flex-wrap:wrap; gap:10px 22px;
     margin:2px 0 14px;
@@ -219,11 +218,10 @@
     border-bottom:1px solid var(--ink);
     padding-bottom:1px;
   }
-  .project a.plink:hover,
-  .proj-card a.plink:hover{color:var(--accent); border-color:var(--accent);}
+
 
   /* ---------- EXPERIENCE PAGE STYLE ---------- */
-  .sec-intro{font-size:16px; color:var(--text); max-width:62ch; margin:0 0 36px;}
+  .sec-intro{font-size:16px; color:#374049; max-width:62ch; margin:0 0 36px;}
   .sub-h{font-size:19px; margin:44px 0 20px;}
   .caps-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px 36px;}
   .cap-group h3{font-size:14.5px; margin-bottom:12px;}
@@ -234,18 +232,12 @@
   .exp h4{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; margin:0 0 2px;}
   .exp .meta{font-size:14px; color:var(--muted); margin-bottom:12px;}
   .exp ul{margin:0; padding-left:18px; max-width:72ch;}
-  .exp li{font-size:15px; color:var(--text); margin-bottom:8px;}
+  .exp li{font-size:15px; color:#374049; margin-bottom:8px;}
   .proj-card{padding:28px 0; border-top:1px solid var(--line);}
   .proj-card:first-of-type{border-top:none; padding-top:0;}
   .proj-card h4{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; margin:0 0 2px;}
   .proj-card .meta{font-size:14px; color:var(--muted); margin-bottom:10px;}
-  .proj-card .summary{font-size:15px; color:var(--text); max-width:64ch; margin:0 0 12px;}
-  .proj-card a.plink{
-    font-size:14px; font-weight:500;
-    text-decoration:none;
-    border-bottom:1px solid var(--ink);
-    padding-bottom:1px;
-  }
+  .proj-card .summary{font-size:15px; color:#374049; max-width:64ch; margin:0 0 12px;}
   details.more{margin-top:12px;}
   details.more summary{cursor:pointer; font-size:14px; font-weight:500; display:inline-block; border-bottom:1px solid var(--ink); padding-bottom:1px; list-style:none;}
   details.more summary::-webkit-details-marker{display:none;}
@@ -253,21 +245,14 @@
   details.more[open] summary::after{content:" \2212";}
   details.more summary::before{content:"";}
   details.more .inner{margin-top:16px; max-width:64ch;}
-  details.more .inner p{font-size:15px; color:var(--text); margin:0 0 10px;}
+  details.more .inner p{font-size:15px; color:#374049; margin:0 0 10px;}
   .detail-img{max-width:420px; margin:0 0 16px;}
   .edu-row{display:grid; grid-template-columns:1fr 1fr; gap:28px 48px;}
   .edu-item h3{font-size:15.5px; margin-bottom:2px;}
   .edu-item .meta{font-size:13.5px; color:var(--muted); margin-bottom:6px;}
-  .edu-item p{font-size:14.5px; color:var(--text); margin:0;}
+  .edu-item p{font-size:14.5px; color:#374049; margin:0;}
   .edu-label{font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:44px 0 18px;}
   .edu-label.first{margin-top:0;}
-
-  /* ---------- PROJECT GRID (side by side) ---------- */
-  .proj-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px; align-items:start;}
-  .proj-grid .proj-card,
-  .proj-grid .proj-card:first-of-type{border:1px solid var(--line); background:var(--panel); border-radius:6px; padding:22px 22px 20px;}
-  .proj-grid .detail-img{max-width:100%;}
-  @media (max-width:760px){.proj-grid{grid-template-columns:1fr;}}
 
   /* ---------- CONTACT ---------- */
   .contact-row{
@@ -280,7 +265,7 @@
   .contact-intro{font-size:15px; color:var(--muted); max-width:38ch; margin:0 0 22px;}
   .contact-links{display:flex; flex-direction:column; gap:10px; font-size:15px;}
   .contact-links a{text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; width:fit-content;}
-  .contact-links a:hover{border-color:var(--accent); color:var(--accent);}
+  .contact-links a:hover{border-color:var(--ink);}
 
   .contact-form{display:flex; flex-direction:column; gap:14px;}
   .form-row{display:flex; flex-direction:column; gap:6px;}
@@ -302,7 +287,7 @@
   .form-status{font-size:14px; margin-top:2px; display:none;}
   .form-status.show{display:block;}
   .form-status.ok{color:var(--accent);}
-  .form-status.err{color:var(--error);}
+  .form-status.err{color:#C0392B;}
 
   footer{padding:26px 0 40px; font-size:13px; color:var(--muted);}
 
@@ -318,6 +303,47 @@
     .nav-links{display:none;}
   }
   :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  /* ---------- COLOR GRADING + CARD GRID ---------- */
+  body{
+    background:
+      radial-gradient(1000px 560px at 6% -4%, rgba(37,99,235,.24), transparent 60%),
+      radial-gradient(820px 520px at 100% 6%, rgba(14,165,160,.22), transparent 58%),
+      radial-gradient(900px 640px at 50% 108%, rgba(124,92,246,.18), transparent 62%),
+      linear-gradient(180deg,#E8F0FC 0%,#E2F0F3 45%,#EBEAF8 100%);
+    background-attachment:fixed;
+  }
+  nav{background:rgba(232,240,252,.78);}
+  section + section{border-top:1px solid rgba(37,99,235,.14);}
+  .hero h1{background:linear-gradient(100deg,#111827 20%,#1D4ED8 70%,#0EA5A0 100%); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .bring-item,.edu-item,.exp{
+    background:rgba(255,255,255,.72);
+    border:1px solid rgba(203,211,222,.8);
+    border-radius:12px;
+    padding:22px 24px;
+    box-shadow:0 10px 28px -18px rgba(37,99,235,.35);
+  }
+  .exp,.exp:first-of-type{border-top:1px solid rgba(203,211,222,.8); padding:22px 24px; margin-bottom:18px;}
+  .chip{background:rgba(255,255,255,.85); border-radius:6px;}
+  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .proj-card,.proj-card:first-of-type{
+    background:#fff;
+    border:1px solid rgba(203,211,222,.9);
+    border-radius:12px;
+    padding:28px;
+    box-shadow:0 1px 2px rgba(17,24,39,.04),0 18px 40px -22px rgba(37,99,235,.4);
+  }
+  .proj-card .summary{max-width:none;}
+  @media (max-width:760px){ .proj-grid{grid-template-columns:1fr;} }
+
+  /* ---------- FULL-WIDTH HERO ---------- */
+  header.hero{padding:96px 0 80px;}
+  .hero .hero-text{width:100%;}
+  .hero h1{max-width:none; font-size:clamp(32px,5.2vw,60px); line-height:1.1; margin:16px 0 26px;}
+  .hero p.sub{max-width:none; font-size:clamp(17px,1.7vw,21px); margin:0 0 44px;}
+  .hero .about{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin:0 0 40px; padding-top:32px; border-top:1px solid rgba(37,99,235,.2);}
+  .hero .about p{max-width:none; margin:0; font-size:15.5px;}
+  @media (max-width:860px){ .hero .about{grid-template-columns:1fr; gap:16px;} }
 </style>
 </head>
 <body>
@@ -388,15 +414,14 @@
     <h3 class="sub-h" style="margin-top:0">Capabilities</h3>
     <div class="caps-grid">
       <div class="cap-group"><h3>Focus areas</h3><div class="chips"><span class="chip">Operational KPI reporting</span><span class="chip">Root cause analysis</span><span class="chip">Data analytics</span><span class="chip">Process improvement</span><span class="chip">Workflow automation</span><span class="chip">Stakeholder reporting</span><span class="chip">Incident management</span></div></div>
-      <div class="cap-group"><h3>Technical tools</h3><div class="chips"><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Tableau</span><span class="chip">BigQuery</span><span class="chip">PostgreSQL</span><span class="chip">dbt</span><span class="chip">Pandas</span><span class="chip">scikit-learn</span><span class="chip">Google Apps Script</span><span class="chip">Slack workflows</span><span class="chip">FastAPI</span><span class="chip">REST APIs</span><span class="chip">Streamlit</span><span class="chip">Jira</span><span class="chip">Confluence</span></div></div>
+      <div class="cap-group"><h3>Technical tools</h3><div class="chips"><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Tableau</span><span class="chip">BigQuery</span><span class="chip">PostgreSQL</span><span class="chip">dbt</span><span class="chip">Pandas</span><span class="chip">Google Apps Script</span><span class="chip">Slack workflows</span><span class="chip">FastAPI</span><span class="chip">REST APIs</span><span class="chip">Streamlit</span><span class="chip">Jira</span><span class="chip">Confluence</span></div></div>
       <div class="cap-group"><h3>Domain knowledge</h3><div class="chips"><span class="chip">Fleet telematics</span><span class="chip">OEM technical coordination</span><span class="chip">EV &amp; battery systems</span></div></div>
     </div>
 
     <h3 class="sub-h">Professional experience</h3>
-    <div class="exp"><h4>Operations Data Analyst</h4><div class="meta">BasiGo · Aug 2026 – Oct 2026 · Nairobi</div><ul><li>Built a Tableau dashboard tracking open and completed job cards, billable vs non-billable work and invoiced vs non-invoiced work, with cost breakdowns and a warranty view. It became the basis for review meetings on where job cards are blocked.</li><li>Added aging views for open and completed-but-not-invoiced job cards, plus a data-quality check for completed job cards with no tasks recorded, so owners could clear blockers.</li><li>Maintained Tableau dashboards and recurring reports across Manufacturing, Engineering, Customer Service, Supply Chain and Quality, and tracked KPIs in Jira to flag trends and risks for business leaders.</li><li>Shared repeat-issue reports in a meeting involving all departments, which led to a 60% drop in vehicle repeat issues.</li><li>Built a notebook that harmonizes OEM manuals from over 5 data source folders so 20+ technicians can find the right manual without digging.</li><li>Documented current and future-state processes in Confluence and wrote user guides and SOPs to support adoption of new tools.</li></ul></div>
-    <div class="exp"><h4>Service Data Analyst</h4><div class="meta">BasiGo · Feb 2026 – Jul 2026 · Nairobi</div><ul><li>Built a Google Apps Script system that reads mileage from Google Sheets and posts overdue and due-soon service alerts to Slack, raising on-schedule maintenance from 70% to 98%.</li><li>Designed Slack workflows for real-time fault intake that trace each incident from report to QC closure, creating one auditable record per case.</li><li>Developed Python pipelines (Pandas + gspread) for live fleet odometer monitoring.</li><li>Ran exploratory data analysis and statistical modeling on high-volume fault logs to identify failure trends.</li><li>Built Tableau dashboards tracking fleet downtime, maintenance turnaround, failure frequency and warranty claim accuracy.</li><li>Structured fault data into escalation packages for OEM partners and standardized fault intake so field teams captured reliable data.</li></ul></div>
-    <div class="exp"><h4>Electric Bus Technician</h4><div class="meta">BasiGo · Dec 2022 – Jan 2026 · Nairobi</div><ul><li>Reduced unexpected vehicle breakdowns by 25% by applying predictive analytics to daily operational and fault code data.</li><li>Led installation of a 110 kWh, 500V battery system at 98% full-charge cycle efficiency and wrote the replication guide adopted for later installations.</li><li>Ran BMS analysis, cell balancing and capacity fade evaluation across the fleet, and contributed to a 10–15% improvement in vehicle energy efficiency through technical studies.</li></ul></div>
-    <div class="exp"><h4>Automotive Technician</h4><div class="meta">BMW Center Kenya · Jul 2021 – Nov 2022</div><ul><li>Performed systematic fault diagnosis using ISTA diagnostic software and built structured documentation practices.</li><li>Helped consolidate best practices into shared knowledge bases adopted across East African service centers.</li></ul></div>
+    <div class="exp"><h4>Operations Data Analyst</h4><div class="meta">BasiGo · Aug 2026 – Oct 2026 · Nairobi</div><ul><li>Built the Tableau billing dashboard that leaders used in review meetings to find where job cards were blocked.</li><li>Shared repeat-issue reports across departments, which led to a 60% drop in vehicle repeat issues.</li><li>Built a notebook that organizes OEM manuals from 5+ source folders so 20+ technicians find the right one fast.</li></ul></div>
+    <div class="exp"><h4>Service Data Analyst</h4><div class="meta">BasiGo · Feb 2026 – Jul 2026 · Nairobi</div><ul><li>Automated service alerts from mileage data into Slack, raising on-schedule maintenance from 70% to 98%.</li><li>Designed Slack workflows that track each fault from report to QC closure in one auditable record.</li><li>Analyzed fault logs to find failure trends and built the dashboards that tracked downtime and turnaround.</li></ul></div>
+    <div class="exp"><h4>Electric Bus Technician</h4><div class="meta">BasiGo · Dec 2022 – Jan 2026 · Nairobi</div><ul><li>Cut unexpected breakdowns by 25% by applying predictive analytics to daily fault code data.</li><li>Led a 110 kWh battery installation and wrote the guide used for later installs.</li></ul></div>
   </div>
 </section>
 
@@ -405,18 +430,42 @@
     <div class="section-head"><h2>Project experience</h2></div>
 
     <div class="proj-grid">
-
     <div class="proj-card">
       <h4>Autonomous Vehicle Trust Analysis</h4>
       <div class="meta">Project ROUTE data science challenge</div>
       <p class="summary">Analysed 2,500 synthetic autonomous-vehicle journeys to decide when the ride can be trusted, from data validation through a predictive model to a conditional trust decision.</p>
       <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">Matplotlib</span></div>
       <details class="more"><summary>Show details</summary><div class="inner">
-        <p>Validated and joined the journey, vehicle, road and weather tables and analysed the intervention events. Problems rise from 16% in clear weather to 48% in snow, and sensor alerts warn early: 85% of journeys with four or more alerts had a problem.</p>
-        <div class="project-stats"><span><strong>2,500</strong> journeys analysed</span><span><strong>83%</strong> of problems caught during a journey (cross-validated)</span><span><strong>7%</strong> caught before departure</span></div>
-        <p>A single test split showed 92% recall, but cross-validation showed about 83%, so I reported the lower figure. I also found that the events file keeps only each journey's most serious event, and flagged 9 contradictory records. Synthetic data only; results are associations, not causes.</p>
+        <p>The decision: conditional trust, with human oversight in bad weather and no unsupervised rides in snow. The problem rate rises from 15.7% in clear weather to 47.7% in snow, and sensor alerts act as an early warning: about 0% problems at 0-1 alerts against 85% at 4 or more.</p>
+        <div class="project-stats"><span><strong>47.7%</strong> problem rate in snow vs 15.7% in clear weather</span><span><strong>83%</strong> of problems caught in-journey (cross-validated)</span><span><strong>7%</strong> caught using only conditions at departure</span></div>
+        <p>Validated the joined files first (no missing values or duplicates, 9 contradictory events flagged), and excluded outcome fields from the model to avoid leakage. Synthetic challenge data, so findings are associations, not real-world safety claims.</p>
       </div></details>
       <p style="margin:12px 0 0"><a class="plink" href="https://github.com/WAWERU123/autonomous-vehicle-trust-analysis" target="_blank" rel="noopener">View on GitHub →</a></p>
+    </div>
+
+    <div class="proj-card">
+      <h4>Coffee Shop Sales AI Assistant</h4>
+      <div class="meta">Independent project</div>
+      <p class="summary">A Streamlit app with a Gemini-powered chat layer so a manager with no SQL or Python can ask questions about the business in plain English.</p>
+      <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Streamlit</span><span class="tag">Matplotlib</span><span class="tag">Google Generative AI</span></div>
+      <details class="more"><summary>Show details</summary><div class="inner">
+        <p>Cleaned and analyzed 149,116 transactions ($698,812 in revenue) across three NYC locations. Hell's Kitchen led on revenue at $236,511, but Astoria ran within 2% of it on transaction count, so ticket size, not foot traffic, was the real gap between them.</p>
+        <div class="project-stats"><span><strong>149,116</strong> transactions cleaned &amp; analyzed</span><span><strong>$698,812</strong> total revenue, Jan–Jun 2023</span><span><strong>10am</strong> peak hour, all 3 locations</span></div>
+      </div></details>
+      <p style="margin:12px 0 0"><a class="plink" href="https://coffee-shop-ai-assistant-fcjwpjhi8hpfryzcpjkxaa.streamlit.app/" target="_blank" rel="noopener">Try the live app →</a> &nbsp;·&nbsp; <a class="plink" href="https://github.com/WAWERU123/coffee-shop-ai-assistant" target="_blank" rel="noopener">View on GitHub →</a></p>
+    </div>
+
+    <div class="proj-card">
+      <h4>JKIA Passenger Recovery Analysis</h4>
+      <div class="meta">Independent project</div>
+      <p class="summary">Audited a raw public dataset end to end in BigQuery and built a Tableau dashboard of Kenya's aviation recovery through COVID.</p>
+      <div class="project-tags"><span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Tableau</span></div>
+      <details class="more"><summary>Show details</summary><div class="inner">
+        <img class="project-viz detail-img" src="jkia-dashboard.png" alt="JKIA Passenger Recovery dashboard in Tableau"
+        onerror="this.outerHTML='&lt;svg class=&quot;project-viz&quot; viewBox=&quot;0 0 200 110&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;line x1=&quot;0&quot; y1=&quot;30&quot; x2=&quot;200&quot; y2=&quot;30&quot; stroke=&quot;%23D7DCD9&quot; stroke-dasharray=&quot;3,3&quot;/&gt;&lt;polyline points=&quot;0,50 20,45 40,25 55,95 70,98 90,80 110,65 130,55 150,40 170,15 190,8&quot; fill=&quot;none&quot; stroke=&quot;%231F9D6B&quot; stroke-width=&quot;2.2&quot;/&gt;&lt;/svg&gt;'">
+        <p>Unpivoted the data, validated it against two independent checks, and caught two blank cells plus a discrepancy in the source's own reported total. Traffic came back 11% above pre-pandemic levels by August 2022, but unevenly: Zurich never recovered, five other routes came back 2 to 3.5 times their 2019 volume, and the top 5 hubs' combined share dropped from 48% to 38%.</p>
+      </div></details>
+      <p style="margin:12px 0 0"><a class="plink" href="https://public.tableau.com/views/TrafficAnalytics_17894144407200/JKIAPassengerRecoveryRoutePerformanceExecutiveOverview?:language=en-US&amp;publish=yes&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener">View on Tableau Public →</a></p>
     </div>
 
     <div class="proj-card">
@@ -431,33 +480,6 @@
       </div></details>
       <p style="margin:12px 0 0"><a class="plink" href="https://github.com/WAWERU123/ev-fleet-pipeline" target="_blank" rel="noopener">View on GitHub →</a></p>
     </div>
-
-    <div class="proj-card">
-      <h4>JKIA Passenger Recovery Analysis</h4>
-      <div class="meta">Independent project</div>
-      <p class="summary">Audited a raw public dataset end to end in BigQuery and built a Tableau dashboard of Kenya's aviation recovery through COVID.</p>
-      <div class="project-tags"><span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Tableau</span></div>
-      <details class="more"><summary>Show details</summary><div class="inner">
-        <img class="project-viz detail-img" src="jkia-dashboard.png" alt="JKIA Passenger Recovery dashboard in Tableau"
-        onerror="this.outerHTML='&lt;svg class=&quot;project-viz&quot; viewBox=&quot;0 0 200 110&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;line x1=&quot;0&quot; y1=&quot;30&quot; x2=&quot;200&quot; y2=&quot;30&quot; stroke=&quot;%23DDE2E9&quot; stroke-dasharray=&quot;3,3&quot;/&gt;&lt;polyline points=&quot;0,50 20,45 40,25 55,95 70,98 90,80 110,65 130,55 150,40 170,15 190,8&quot; fill=&quot;none&quot; stroke=&quot;%231E40AF&quot; stroke-width=&quot;2.2&quot;/&gt;&lt;/svg&gt;'">
-        <p>Unpivoted the data, validated it against two independent checks, and caught two blank cells plus a discrepancy in the source's own reported total. Traffic came back 11% above pre-pandemic levels by August 2022, but unevenly: Zurich never recovered, five other routes came back 2 to 3.5 times their 2019 volume, and the top 5 hubs' combined share dropped from 48% to 38%.</p>
-      </div></details>
-      <p style="margin:12px 0 0"><a class="plink" href="https://public.tableau.com/views/TrafficAnalytics_17894144407200/JKIAPassengerRecoveryRoutePerformanceExecutiveOverview?:language=en-US&amp;publish=yes&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener">View on Tableau Public →</a></p>
-    </div>
-
-    <div class="proj-card">
-      <h4>Coffee Shop Sales AI Assistant</h4>
-      <div class="meta">Independent project</div>
-      <p class="summary">A Streamlit app with a Gemini-powered chat layer so a manager with no SQL or Python can ask questions about the business in plain English.</p>
-      <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Streamlit</span><span class="tag">Matplotlib</span><span class="tag">Google Generative AI</span></div>
-      <details class="more"><summary>Show details</summary><div class="inner">
-        <img class="project-viz detail-img" src="COFFEE_IMAGE_PLACEHOLDER" alt="Coffee Shop Sales AI Assistant Streamlit app showing revenue metrics and a natural-language query answered by Gemini">
-        <p>Cleaned and analyzed 149,116 transactions ($698,812 in revenue) across three NYC locations. Hell's Kitchen led on revenue at $236,511, but Astoria ran within 2% of it on transaction count, so ticket size, not foot traffic, was the real gap between them.</p>
-        <div class="project-stats"><span><strong>149,116</strong> transactions cleaned &amp; analyzed</span><span><strong>$698,812</strong> total revenue, Jan–Jun 2023</span><span><strong>10am</strong> peak hour, all 3 locations</span></div>
-      </div></details>
-      <p style="margin:12px 0 0"><a class="plink" href="https://github.com/WAWERU123/coffee-shop-ai-assistant" target="_blank" rel="noopener">View on GitHub →</a></p>
-    </div>
-
     </div>
   </div>
 </section>

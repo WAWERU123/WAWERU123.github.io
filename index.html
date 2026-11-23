@@ -452,7 +452,7 @@
         <p>Cleaned and analyzed 149,116 transactions ($698,812 in revenue) across three NYC locations. Hell's Kitchen led on revenue at $236,511, but Astoria ran within 2% of it on transaction count, so ticket size, not foot traffic, was the real gap between them.</p>
         <div class="project-stats"><span><strong>149,116</strong> transactions cleaned &amp; analyzed</span><span><strong>$698,812</strong> total revenue, Jan–Jun 2023</span><span><strong>10am</strong> peak hour, all 3 locations</span></div>
       </div></details>
-      <p style="margin:12px 0 0"><a class="plink" href="https://coffee-shop-ai-assistant-fcjwpjhi8hpfryzcpjkxaa.streamlit.app/" target="_blank" rel="noopener">Try the live app →</a> &nbsp;·&nbsp; <a class="plink" href="https://github.com/WAWERU123/coffee-shop-ai-assistant" target="_blank" rel="noopener">View on GitHub →</a></p>
+      <p style="margin:12px 0 0"><a class="plink" href="https://coffee-shop-ai-assistant-fcjwpjhi8hpfryzcpjkxaa.streamlit.app/" target="_blank" rel="noopener">Try the live app →</a> &nbsp;·&nbsp; <a class="plink" href="https://github.com/WAWERU123/coffee-shop-ai-assistant." target="_blank" rel="noopener">View on GitHub →</a></p>
     </div>
 
     <div class="proj-card">
@@ -469,16 +469,16 @@
     </div>
 
     <div class="proj-card">
-      <h4>EV Fleet Event Pipeline</h4>
-      <div class="meta">Independent project</div>
-      <p class="summary">A webhook-driven pipeline that turns an abnormal battery reading into a stored alert and an open work order with no manual steps.</p>
-      <div class="project-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">REST APIs</span><span class="tag">Webhooks</span></div>
+      <h4>Loan Default Risk Model</h4>
+      <div class="meta">Lloyds Banking Group Step Up Virtual Career Challenge</div>
+      <p class="summary">Profiled customers who repaid versus defaulted across 18,324 historical loans, then built a calibrated model that scores new customers into risk bands.</p>
+      <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">Logistic Regression</span></div>
       <details class="more"><summary>Show details</summary><div class="inner">
-        <p>Simulated bus telemetry is posted to a FastAPI endpoint, validated, and stored idempotently in Postgres, so duplicated or retried events are recorded once. A rule raises an alert, which is enriched with ambient temperature from the Open-Meteo API and opens a GitHub Issue as the work order.</p>
-        <div class="project-stats"><span><strong>4</strong> systems connected</span><span><strong>3x</strong> retries with exponential backoff</span><span><strong>1</strong> reading in, alert and work order out</span></div>
-        <p>The design centres on failure: the alert is committed before any third-party call, and anything that still fails is logged to a table instead of lost. Simulated data only.</p>
+        <p>Loan term is the strongest driver of default: 60-month loans default at 31.9% against 17.1% for 36-month loans. Affordability (repayments relative to income) matters more than income itself. The model's scores read as genuine default probabilities, and the high-risk fifth of customers defaults at 39.8% against 12.7% for the low-risk half.</p>
+        <div class="project-stats"><span><strong>21.3%</strong> of the 18,324 loans defaulted</span><span><strong>0.695</strong> test ROC-AUC (95% CI 0.673 to 0.717)</span><span><strong>2.6x</strong> default odds for 60-month vs 36-month loans</span></div>
+        <p>A gradient boosting challenger did no better (AUC 0.690), so the simpler, explainable logistic regression was kept. The data is US data supplied for the challenge, and the write-up notes the model would need UK retraining and a fairness review before any real lending use.</p>
       </div></details>
-      <p style="margin:12px 0 0"><a class="plink" href="https://github.com/WAWERU123/ev-fleet-pipeline" target="_blank" rel="noopener">View on GitHub →</a></p>
+      <p style="margin:12px 0 0"><a class="plink" href="https://github.com/WAWERU123/loan-default-risk-model" target="_blank" rel="noopener">View on GitHub →</a></p>
     </div>
     </div>
   </div>
